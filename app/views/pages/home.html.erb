@@ -1,7 +1,10 @@
-<div class="jumbotron center">
+
+<div class="container">
 	<% if user_signed_in? %>
-		<p> You made it inside! </p>
-	<% else %>		
+		<%= render "layouts/measures"%>
+	<% else %>	
+</div>
+	<div class="jumbotron center">	
 		<h1>Welcome to Able</h1>
 		<%= form_for(:user, :url => session_path(:user)) do |f| %>
 		
