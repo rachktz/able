@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Able", root_path, class: "navbar-brand" %>
+      <!-- How do I link an image to root_path? How do I get img path relative to root_path? --><img src="assets/wordmark-white.png" id="logo" alt="Able">
     </div>
   
 
@@ -17,9 +17,13 @@
       
      
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
+        <% if !user_signed_in? %>
+          <li><%= link_to "Log in", root_path %></li>
+          <li><%= link_to "Help", help_path %></li>
+        <% end %>
         <% if user_signed_in? %>
+          <li><%= link_to "Dashboard", root_path %></li>
+          <li><%= link_to "Help", help_path %></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% end %>
       </ul>
